@@ -7,18 +7,24 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 import os
-from rdflib import Graph
+
+from rdflib import Graph, Namespace, URIRef, RDF, RDFS, Literal
 
 class HospitalKPIReasoner:
     def __init__(self, ontology_path, data_path):
-        # Always resolve paths relative to the project root
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        ontology_full_path = os.path.join(base_dir, ontology_path)
-        data_full_path = os.path.join(base_dir, data_path)
-
         self.graph = Graph()
+
+        # ✅ Define the namespace BEFORE binding
+        self.hospital = Namespace("http://example.org/hospital#")
+        self.graph.bind("hospital", self.hospital)
+
+        # ✅ Load ontology and data
+        ontology_full_path = os.path.join(os.getcwd(), ontology_path)
+        data_full_path = os.path.join(os.getcwd(), data_path)
+
         self.graph.parse(ontology_full_path, format="xml")
         self.graph.parse(data_full_path, format="turtle")
+
 
         
         # Initialize namespaces
