@@ -1,26 +1,20 @@
+# syntax=docker/dockerfile:1
 FROM python:3.11-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy requirements first for better caching
+# Copy dependencies and install
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Copy all source files
 COPY . .
 
-# Create necessary directories
+# Ensure logs directory exists
 RUN mkdir -p logs
 
-# Expose port
-EXPOSE 8080
+# Expose port (Render provides $PORT dynamically)
+EXPOSE 10000
 
-# Set environment variables
-ENV PORT=8080
-ENV FLASK_ENV=production
-
-# Run the application
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080", "--workers", "4", "--timeout", "120"]
+# Use Gunicorn with eventlet for Flask-SocketIO
+CMD ["sh", "-c", "gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:${PORT:-10000}"]
