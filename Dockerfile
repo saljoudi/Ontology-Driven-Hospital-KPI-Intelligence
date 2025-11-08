@@ -21,5 +21,6 @@ RUN mkdir -p logs
 EXPOSE 10000
 
 # Start using Gunicorn with eventlet for Flask-SocketIO
-CMD ["sh", "-c", "gunicorn --worker-class eventlet -w 1 app:socketio --bind 0.0.0.0:${PORT:-10000}"]
+CMD ["sh", "-c", "gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:${PORT:-10000}"]
+
 
