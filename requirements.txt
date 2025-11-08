@@ -1,9 +1,24 @@
+# --- Core Web Framework ---
 Flask
 Flask-SocketIO
 gunicorn
 eventlet
+
+# --- Ontology and Semantic Reasoning ---
 rdflib
-requests
+SPARQLWrapper    # optional but useful if you expand SPARQL queries later
+
+# --- Data & Analytics ---
 pandas
 numpy
 plotly
+
+# --- Templates & Utilities ---
+jinja2
+itsdangerous
+Werkzeug
+python-dotenv
+requests
+
+# --- Optional (for testing & debugging) ---
+pytest
