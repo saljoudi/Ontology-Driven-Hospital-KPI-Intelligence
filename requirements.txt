@@ -1,4 +1,9 @@
-Flask==2.3.3
-Flask-SocketIO==5.3.4
-rdflib==6.3.2
-requests==2.31.0
+Flask
+Flask-SocketIO
+gunicorn
+eventlet
+rdflib
+requests
+pandas
+numpy
+plotly
