@@ -216,23 +216,36 @@ def health_check():
         'version': '1.0.0',
         'realtime_active': update_active
     })
-
 # Configuration
 if __name__ == '__main__':
-    # Create necessary directories
     os.makedirs('static/css', exist_ok=True)
     os.makedirs('static/js', exist_ok=True)
     os.makedirs('templates', exist_ok=True)
-    
-    # Determine port from environment or use default
+
     port = int(os.environ.get('PORT', 8080))
+
+    print("🚀 Starting Hospital KPI Intelligence System...")
+    print(f"🩺 Flask-SocketIO active on port {port}")
+    print(f"📡 Connected reasoner triples: {len(reasoner.graph)}")
+
+    socketio.run(app, host='0.0.0.0', port=port, debug=False, allow_unsafe_werkzeug=True)
+
+# # Configuration
+# if __name__ == '__main__':
+#     # Create necessary directories
+#     os.makedirs('static/css', exist_ok=True)
+#     os.makedirs('static/js', exist_ok=True)
+#     os.makedirs('templates', exist_ok=True)
     
-    # Run the application
-    print(f"Starting Hospital KPI Intelligence WebApp on port {port}")
-    print(f"Access the application at: http://localhost:{port}")
+#     # Determine port from environment or use default
+#     port = int(os.environ.get('PORT', 8080))
     
-    socketio.run(app, 
-                host='0.0.0.0', 
-                port=port, 
-                debug=False,
-                allow_unsafe_werkzeug=True)
+#     # Run the application
+#     print(f"Starting Hospital KPI Intelligence WebApp on port {port}")
+#     print(f"Access the application at: http://localhost:{port}")
+    
+#     socketio.run(app, 
+#                 host='0.0.0.0', 
+#                 port=port, 
+#                 debug=False,
+#                 allow_unsafe_werkzeug=True)
