@@ -3,9 +3,9 @@ services:
     name: hospital-kpi-intelligence
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app --bind 0.0.0.0:8080"
+    startCommand: "gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:${PORT:-10000}"
     envVars:
       - key: PORT
-        value: 8080
+        value: 10000
       - key: PYTHON_VERSION
         value: 3.11.0
