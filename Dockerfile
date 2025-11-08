@@ -2,32 +2,37 @@
 # 🏥 Ontology-Driven Hospital KPI Intelligence — Dockerfile
 # ==========================================================
 
-# --- Base image
+# --- Base image ---
 FROM python:3.11-slim
 
-# --- Set working directory
+# --- Environment setup ---
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PORT=10000
+
+# --- Working directory ---
 WORKDIR /app
 
-# --- Copy dependency list first (for caching)
-COPY requirements.txt .
+# --- System dependencies (optional but useful for pandas, rdflib parsers, etc.) ---
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# --- Install dependencies
+# --- Copy and install Python dependencies ---
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# --- Copy entire project into the image
+# --- Copy the full project into container ---
 COPY . .
 
-# --- 🔹 Make sure ontology directory exists and contains files
-# Some Render builds skip empty folders, so force-create and copy explicitly
-RUN mkdir -p /app/ontology \
-    && cp -r ontology/* /app/ontology/ || true \
-    && ls -R /app/ontology
+# --- Ensure ontology folder & logs exist (Render sometimes drops empty dirs) ---
+RUN mkdir -p /app/ontology /app/logs \
+    && if [ -d "./ontology" ]; then cp -r ontology/* /app/ontology/; fi \
+    && ls -R /app/ontology || true
 
-# --- Optional: ensure logs folder exists
-RUN mkdir -p logs
-
-# --- Expose Render port
+# --- Expose Render port ---
 EXPOSE 10000
 
-# --- Run the Flask-SocketIO app using Gunicorn + Eventlet
+# --- Start command (Gunicorn + Eventlet for SocketIO) ---
 CMD ["sh", "-c", "gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:${PORT:-10000}"]
