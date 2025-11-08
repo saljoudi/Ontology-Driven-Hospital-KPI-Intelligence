@@ -6,14 +6,20 @@ import json
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 
+import os
+from rdflib import Graph
+
 class HospitalKPIReasoner:
-    def __init__(self, ontology_path: str, data_path: str):
+    def __init__(self, ontology_path, data_path):
+        # Always resolve paths relative to the project root
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        ontology_full_path = os.path.join(base_dir, ontology_path)
+        data_full_path = os.path.join(base_dir, data_path)
+
         self.graph = Graph()
-        self.hospital = Namespace("http://hospital-kpi.org/ontology#")
-        
-        # Load ontology and data
-        self.graph.parse(ontology_path, format="xml")
-        self.graph.parse(data_path, format="turtle")
+        self.graph.parse(ontology_full_path, format="xml")
+        self.graph.parse(data_full_path, format="turtle")
+
         
         # Initialize namespaces
         self.graph.bind("hospital", self.hospital)
