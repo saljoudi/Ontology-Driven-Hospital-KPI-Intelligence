@@ -1,0 +1,212 @@
+@prefix hospital: <http://hospital-kpi.org/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Hospital Instance
+hospital:GeneralHospital a hospital:Hospital ;
+    rdfs:label "General Hospital" .
+
+# Departments
+hospital:EmergencyDepartment a hospital:Department ;
+    rdfs:label "Emergency Department" ;
+    hospital:hasKPI hospital:AvgWaitTime ;
+    hospital:hasKPI hospital:PatientSatisfactionED ;
+    hospital:hasKPI hospital:BedOccupancyED ;
+    hospital:hasKPI hospital:TriageAccuracy .
+
+hospital:RadiologyDepartment a hospital:Department ;
+    rdfs:label "Radiology Department" ;
+    hospital:hasKPI hospital:TurnaroundTime ;
+    hospital:hasKPI hospital:ImageQuality ;
+    hospital:hasKPI hospital:EquipmentUtilization ;
+    hospital:hasKPI hospital:RadiationDose .
+
+hospital:SurgeryDepartment a hospital:Department ;
+    rdfs:label "Surgery Department" ;
+    hospital:hasKPI hospital:SurgicalSiteInfections ;
+    hospital:hasKPI hospital:OperatingRoomUtilization ;
+    hospital:hasKPI hospital:LengthOfStay ;
+    hospital:hasKPI hospital:MortalityRate .
+
+hospital:PharmacyDepartment a hospital:Department ;
+    rdfs:label "Pharmacy Department" ;
+    hospital:hasKPI hospital:MedicationErrors ;
+    hospital:hasKPI hospital:PrescriptionAccuracy ;
+    hospital:hasKPI hospital:InventoryTurnover ;
+    hospital:hasKPI hospital:DrugInteractions .
+
+# Performance Domains
+hospital:OperationalEfficiency a hospital:PerformanceDomain ;
+    rdfs:label "Operational Efficiency" .
+
+hospital:PatientSafety a hospital:PerformanceDomain ;
+    rdfs:label "Patient Safety" .
+
+hospital:QualityOfCare a hospital:PerformanceDomain ;
+    rdfs:label "Quality of Care" .
+
+hospital:FinancialPerformance a hospital:PerformanceDomain ;
+    rdfs:label "Financial Performance" .
+
+# Strategic Goals
+hospital:PatientExperience a hospital:StrategicGoal ;
+    rdfs:label "Enhance Patient Experience" .
+
+hospital:OperationalExcellence a hospital:StrategicGoal ;
+    rdfs:label "Achieve Operational Excellence" .
+
+hospital:ClinicalQuality a hospital:StrategicGoal ;
+    rdfs:label "Ensure Clinical Quality" .
+
+# KPIs - Emergency Department
+hospital:AvgWaitTime a hospital:KPI ;
+    rdfs:label "Average Wait Time" ;
+    hospital:belongsToDomain hospital:OperationalEfficiency ;
+    hospital:contributesToGoal hospital:PatientExperience ;
+    hospital:targetValue "30"^^xsd:float ;
+    hospital:unit "minutes" .
+
+hospital:PatientSatisfactionED a hospital:KPI ;
+    rdfs:label "Patient Satisfaction Score" ;
+    hospital:belongsToDomain hospital:QualityOfCare ;
+    hospital:contributesToGoal hospital:PatientExperience ;
+    hospital:targetValue "85"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:BedOccupancyED a hospital:KPI ;
+    rdfs:label "Bed Occupancy Rate" ;
+    hospital:belongsToDomain hospital:OperationalEfficiency ;
+    hospital:contributesToGoal hospital:OperationalExcellence ;
+    hospital:targetValue "75"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:TriageAccuracy a hospital:KPI ;
+    rdfs:label "Triage Accuracy" ;
+    hospital:belongsToDomain hospital:PatientSafety ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "95"^^xsd:float ;
+    hospital:unit "percentage" .
+
+# KPIs - Radiology Department
+hospital:TurnaroundTime a hospital:KPI ;
+    rdfs:label "Report Turnaround Time" ;
+    hospital:belongsToDomain hospital:OperationalEfficiency ;
+    hospital:contributesToGoal hospital:OperationalExcellence ;
+    hospital:targetValue "24"^^xsd:float ;
+    hospital:unit "hours" .
+
+hospital:ImageQuality a hospital:KPI ;
+    rdfs:label "Image Quality Score" ;
+    hospital:belongsToDomain hospital:QualityOfCare ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "90"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:EquipmentUtilization a hospital:KPI ;
+    rdfs:label "Equipment Utilization" ;
+    hospital:belongsToDomain hospital:FinancialPerformance ;
+    hospital:contributesToGoal hospital:OperationalExcellence ;
+    hospital:targetValue "80"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:RadiationDose a hospital:KPI ;
+    rdfs:label "Average Radiation Dose" ;
+    hospital:belongsToDomain hospital:PatientSafety ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "10"^^xsd:float ;
+    hospital:unit "mSv" .
+
+# KPIs - Surgery Department
+hospital:SurgicalSiteInfections a hospital:KPI ;
+    rdfs:label "Surgical Site Infection Rate" ;
+    hospital:belongsToDomain hospital:PatientSafety ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "2"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:OperatingRoomUtilization a hospital:KPI ;
+    rdfs:label "Operating Room Utilization" ;
+    hospital:belongsToDomain hospital:OperationalEfficiency ;
+    hospital:contributesToGoal hospital:OperationalExcellence ;
+    hospital:targetValue "75"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:LengthOfStay a hospital:KPI ;
+    rdfs:label "Average Length of Stay" ;
+    hospital:belongsToDomain hospital:OperationalEfficiency ;
+    hospital:contributesToGoal hospital:OperationalExcellence ;
+    hospital:targetValue "4.5"^^xsd:float ;
+    hospital:unit "days" .
+
+hospital:MortalityRate a hospital:KPI ;
+    rdfs:label "Mortality Rate" ;
+    hospital:belongsToDomain hospital:PatientSafety ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "1.5"^^xsd:float ;
+    hospital:unit "percentage" .
+
+# KPIs - Pharmacy Department
+hospital:MedicationErrors a hospital:KPI ;
+    rdfs:label "Medication Error Rate" ;
+    hospital:belongsToDomain hospital:PatientSafety ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "0.5"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:PrescriptionAccuracy a hospital:KPI ;
+    rdfs:label "Prescription Accuracy" ;
+    hospital:belongsToDomain hospital:QualityOfCare ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "98"^^xsd:float ;
+    hospital:unit "percentage" .
+
+hospital:InventoryTurnover a hospital:KPI ;
+    rdfs:label "Inventory Turnover Rate" ;
+    hospital:belongsToDomain hospital:FinancialPerformance ;
+    hospital:contributesToGoal hospital:OperationalExcellence ;
+    hospital:targetValue "12"^^xsd:float ;
+    hospital:unit "times per year" .
+
+hospital:DrugInteractions a hospital:KPI ;
+    rdfs:label "Preventable Drug Interactions" ;
+    hospital:belongsToDomain hospital:PatientSafety ;
+    hospital:contributesToGoal hospital:ClinicalQuality ;
+    hospital:targetValue "1"^^xsd:float ;
+    hospital:unit "percentage" .
+
+# Causal Relationships
+hospital:TriageAccuracy hospital:influences hospital:AvgWaitTime .
+hospital:AvgWaitTime hospital:influences hospital:PatientSatisfactionED .
+hospital:TurnaroundTime hospital:influences hospital:LengthOfStay .
+hospital:MedicationErrors hospital:influences hospital:LengthOfStay .
+hospital:LengthOfStay hospital:influences hospital:BedOccupancyED .
+hospital:ImageQuality hospital:influences hospital:SurgicalSiteInfections .
+hospital:PrescriptionAccuracy hospital:influences hospital:DrugInteractions .
+
+# Current Observations
+hospital:obs1 a hospital:PerformanceObservation ;
+    hospital:hasValue "45"^^xsd:float ;
+    hospital:status "warning"^^xsd:string ;
+    hospital:timestamp "2025-11-08T10:00:00"^^xsd:dateTime .
+
+hospital:obs2 a hospital:PerformanceObservation ;
+    hospital:hasValue "78"^^xsd:float ;
+    hospital:status "good"^^xsd:string ;
+    hospital:timestamp "2025-11-08T10:00:00"^^xsd:dateTime .
+
+hospital:obs3 a hospital:PerformanceObservation ;
+    hospital:hasValue "82"^^xsd:float ;
+    hospital:status "good"^^xsd:string ;
+    hospital:timestamp "2025-11-08T10:00:00"^^xsd:dateTime .
+
+hospital:obs4 a hospital:PerformanceObservation ;
+    hospital:hasValue "92"^^xsd:float ;
+    hospital:status "excellent"^^xsd:string ;
+    hospital:timestamp "2025-11-08T10:00:00"^^xsd:dateTime .
+
+# Link observations to KPIs
+hospital:AvgWaitTime hospital:hasObservation hospital:obs1 .
+hospital:PatientSatisfactionED hospital:hasObservation hospital:obs2 .
+hospital:BedOccupancyED hospital:hasObservation hospital:obs3 .
+hospital:TriageAccuracy hospital:hasObservation hospital:obs4 .

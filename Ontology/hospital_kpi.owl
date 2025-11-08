@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:hospital="http://hospital-kpi.org/ontology#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+         xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+         xml:base="http://hospital-kpi.org/ontology">
+
+  <owl:Ontology rdf:about="http://hospital-kpi.org/ontology">
+    <owl:versionInfo>1.0</owl:versionInfo>
+    <rdfs:comment>Hospital KPI Intelligence Ontology</rdfs:comment>
+  </owl:Ontology>
+
+  <!-- Classes -->
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#Hospital">
+    <rdfs:label>Hospital</rdfs:label>
+    <rdfs:comment>The main healthcare organization</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#Department">
+    <rdfs:label>Department</rdfs:label>
+    <rdfs:comment>Organizational unit within the hospital</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#KPI">
+    <rdfs:label>Key Performance Indicator</rdfs:label>
+    <rdfs:comment>Measurable performance metric</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#PerformanceDomain">
+    <rdfs:label>Performance Domain</rdfs:label>
+    <rdfs:comment>Category of performance measurement</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#StrategicGoal">
+    <rdfs:label>Strategic Goal</rdfs:label>
+    <rdfs:comment>Organizational strategic objective</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#PerformanceObservation">
+    <rdfs:label>Performance Observation</rdfs:label>
+    <rdfs:comment>Specific measurement instance</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://hospital-kpi.org/ontology#CausalLink">
+    <rdfs:label>Causal Link</rdfs:label>
+    <rdfs:comment>Relationship indicating cause and effect</rdfs:comment>
+  </owl:Class>
+
+  <!-- Object Properties -->
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#hasDepartment">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#Hospital"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#Department"/>
+    <rdfs:label>has department</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#hasKPI">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#Department"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:label>has KPI</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#belongsToDomain">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#PerformanceDomain"/>
+    <rdfs:label>belongs to domain</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#contributesToGoal">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#StrategicGoal"/>
+    <rdfs:label>contributes to goal</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#influences">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:label>influences</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#dependsOn">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:label>depends on</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#hasObservation">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#PerformanceObservation"/>
+    <rdfs:label>has observation</rdfs:label>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://hospital-kpi.org/ontology#hasCausalLink">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://hospital-kpi.org/ontology#CausalLink"/>
+    <rdfs:label>has causal link</rdfs:label>
+  </owl:ObjectProperty>
+
+  <!-- Data Properties -->
+  <owl:DatatypeProperty rdf:about="http://hospital-kpi.org/ontology#hasValue">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#PerformanceObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label>has value</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://hospital-kpi.org/ontology#targetValue">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label>target value</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://hospital-kpi.org/ontology#unit">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#KPI"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>unit</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://hospital-kpi.org/ontology#status">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#PerformanceObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>status</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://hospital-kpi.org/ontology#timestamp">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#PerformanceObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label>timestamp</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://hospital-kpi.org/ontology#influenceStrength">
+    <rdfs:domain rdf:resource="http://hospital-kpi.org/ontology#CausalLink"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label>influence strength</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- SWRL Rules -->
+  <swrl:Imp rdf:about="http://hospital-kpi.org/ontology#UnderperformingKPI">
+    <swrl:head rdf:parseType="Collection">
+      <swrl:IndividualPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="http://hospital-kpi.org/ontology#status"/>
+        <swrl:argument1 rdf:resource="http://hospital-kpi.org/ontology#obs"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">underperforming</swrl:argument2>
+      </swrl:IndividualPropertyAtom>
+    </swrl:head>
+    <swrl:body rdf:parseType="Collection">
+      <swrl:IndividualPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="http://hospital-kpi.org/ontology#hasObservation"/>
+        <swrl:argument1 rdf:resource="http://hospital-kpi.org/ontology#kpi"/>
+        <swrl:argument2 rdf:resource="http://hospital-kpi.org/ontology#obs"/>
+      </swrl:IndividualPropertyAtom>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="http://hospital-kpi.org/ontology#hasValue"/>
+        <swrl:argument1 rdf:resource="http://hospital-kpi.org/ontology#obs"/>
+        <swrl:argument2 rdf:resource="http://hospital-kpi.org/ontology#value"/>
+      </swrl:DatavaluedPropertyAtom>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="http://hospital-kpi.org/ontology#targetValue"/>
+        <swrl:argument1 rdf:resource="http://hospital-kpi.org/ontology#kpi"/>
+        <swrl:argument2 rdf:resource="http://hospital-kpi.org/ontology#target"/>
+      </swrl:DatavaluedPropertyAtom>
+      <swrl:BuiltinAtom>
+        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+        <swrl:arguments rdf:parseType="Collection">
+          <swrl:Variable rdf:about="http://hospital-kpi.org/ontology#value"/>
+          <swrl:Variable rdf:about="http://hospital-kpi.org/ontology#target"/>
+        </swrl:arguments>
+      </swrl:BuiltinAtom>
+    </swrl:body>
+  </swrl:Imp>
+
+</rdf:RDF>

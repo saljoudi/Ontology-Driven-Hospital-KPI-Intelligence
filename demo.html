@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 Hospital KPI Intelligence System - Live Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">🏥 Hospital KPI Intelligence</h1>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-green-400 rounded-full pulse"></div>
+                    <span class="text-sm text-gray-600">System Operational</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4 fade-in">
+                Ontology-Driven Hospital Intelligence
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto fade-in">
+                Transform raw KPIs into actionable insights with semantic reasoning and causal analysis
+            </p>
+            <div class="flex justify-center space-x-4 fade-in">
+                <a href="#features" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Explore Features
+                </a>
+                <a href="#demo" class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                    See Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Status -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fade-in">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">🎯 System Capabilities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">16+</div>
+                    <div class="text-sm text-gray-600">Hospital KPIs</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-2">19</div>
+                    <div class="text-sm text-gray-600">Causal Relationships</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">4</div>
+                    <div class="text-sm text-gray-600">Departments</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">∞</div>
+                    <div class="text-sm text-gray-600">What-If Scenarios</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">🚀 Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="feature-card bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="text-4xl mb-4">🧠</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Semantic Reasoning</h3>
+                <p class="text-gray-600 mb-4">
+                    Advanced RDFLib-powered ontology reasoning that understands the meaning and relationships between hospital KPIs, not just their values.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-1">
+                    <li>✅ Automatic status inference</li>
+                    <li>✅ Goal risk assessment</li>
+                    <li>✅ Operational stress detection</li>
+                </ul>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="text-4xl mb-4">🕸️</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Network Visualization</h3>
+                <p class="text-gray-600 mb-4">
+                    Interactive D3.js network graphs showing the complex web of relationships between different hospital departments and their KPIs.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-1">
+                    <li>✅ Real-time network updates</li>
+                    <li>✅ Causal relationship mapping</li>
+                    <li>✅ Interactive exploration</li>
+                </ul>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="text-4xl mb-4">🔮</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">What-If Simulation</h3>
+                <p class="text-gray-600 mb-4">
+                    Test the impact of KPI changes before implementation with our advanced simulation engine that propagates effects through the entire network.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-1">
+                    <li>✅ Interactive slider controls</li>
+                    <li>✅ Real-time impact calculation</li>
+                    <li>✅ Scenario saving & comparison</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="text-4xl mb-4">📊</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-Time Analytics</h3>
+                <p class="text-gray-600 mb-4">
+                    Live dashboard with SocketIO-powered real-time updates, showing current performance and generating AI-powered insights.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-1">
+                    <li>✅ Live KPI monitoring</li>
+                    <li>✅ AI-generated insights</li>
+                    <li>✅ Predictive analytics</li>
+                </ul>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="text-4xl mb-4">🎯</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Strategic Alignment</h3>
+                <p class="text-gray-600 mb-4">
+                    Connect operational KPIs to strategic goals with hierarchical goal mapping and progress tracking across all hospital departments.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-1">
+                    <li>✅ Goal-to-KPI mapping</li>
+                    <li>✅ Progress visualization</li>
+                    <li>✅ Risk assessment</li>
+                </ul>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Recommendations</h3>
+                <p class="text-gray-600 mb-4">
+                    Intelligent recommendations based on causal analysis, helping hospital managers make data-driven decisions with confidence.
+                </p>
+                <ul class="text-sm text-gray-500 space-y-1">
+                    <li>✅ Causal chain analysis</li>
+                    <li>✅ Priority-based recommendations</li>
+                    <li>✅ Impact assessment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Demo Section -->
+    <div id="demo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">🎮 Interactive Demo</h2>
+            
+            <!-- KPI Cards Demo -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Real-Time KPI Monitoring</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 border-l-4 border-green-500">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-gray-900">Patient Satisfaction</h4>
+                            <span class="text-green-600">👍</span>
+                        </div>
+                        <div class="text-2xl font-bold text-green-700">87.3%</div>
+                        <div class="text-xs text-gray-600">Target: 85% | Status: Excellent</div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg p-4 border-l-4 border-yellow-500">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-gray-900">Avg Wait Time</h4>
+                            <span class="text-yellow-600">⏱️</span>
+                        </div>
+                        <div class="text-2xl font-bold text-yellow-700">42 min</div>
+                        <div class="text-xs text-gray-600">Target: 30 min | Status: Warning</div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 border-l-4 border-blue-500">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-gray-900">Bed Occupancy</h4>
+                            <span class="text-blue-600">🛏️</span>
+                        </div>
+                        <div class="text-2xl font-bold text-blue-700">78%</div>
+                        <div class="text-xs text-gray-600">Target: 75% | Status: Good</div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-4 border-l-4 border-red-500">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-gray-900">Medication Errors</h4>
+                            <span class="text-red-600">⚠️</span>
+                        </div>
+                        <div class="text-2xl font-bold text-red-700">0.8%</div>
+                        <div class="text-xs text-gray-600">Target: 0.5% | Status: Critical</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Visualization Demo -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">KPI Relationship Network</h3>
+                <div class="bg-gray-50 rounded-lg p-6 min-h-64 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">🕸️</div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Interactive Network Graph</h4>
+                        <p class="text-gray-600 mb-4">
+                            Explore the complex web of relationships between hospital KPIs. Click nodes to see details, 
+                            hover over connections to understand influences, and watch real-time updates as KPIs change.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-white rounded p-3">
+                                <div class="font-medium text-gray-900">Nodes</div>
+                                <div class="text-blue-600">16 KPIs</div>
+                            </div>
+                            <div class="bg-white rounded p-3">
+                                <div class="font-medium text-gray-900">Edges</div>
+                                <div class="text-green-600">19 Relationships</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What-If Simulation Demo -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">What-If Simulation</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-gray-900 mb-3">Adjust KPI Values</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="text-sm text-gray-600">Patient Wait Time</label>
+                                <input type="range" min="15" max="90" value="42" class="w-full mt-1">
+                                <div class="text-xs text-gray-500 mt-1">Current: 42 min | Target: 30 min</div>
+                            </div>
+                            <div>
+                                <label class="text-sm text-gray-600">Bed Occupancy Rate</label>
+                                <input type="range" min="50" max="100" value="78" class="w-full mt-1">
+                                <div class="text-xs text-gray-500 mt-1">Current: 78% | Target: 75%</div>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors">
+                            🚀 Run Simulation
+                        </button>
+                    </div>
+                    
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-gray-900 mb-3">Simulation Results</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Patient Satisfaction:</span>
+                                <span class="text-green-600 font-medium">+5.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Staff Productivity:</span>
+                                <span class="text-yellow-600 font-medium">-2.1%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Overall Impact:</span>
+                                <span class="text-blue-600 font-medium">Medium</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-white rounded border-l-4 border-blue-500">
+                            <div class="text-xs text-blue-800 font-medium mb-1">Recommendation:</div>
+                            <div class="text-xs text-blue-700">
+                                Reducing wait times will improve patient satisfaction but may require additional staffing resources.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insights Demo -->
+            <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">AI-Powered Insights</h3>
+                <div class="space-y-3">
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-red-800">🚨 Critical Alert</h4>
+                            <span class="text-xs px-2 py-1 bg-red-100 text-red-800 rounded">High Priority</span>
+                        </div>
+                        <p class="text-sm text-red-700 mb-2">
+                            Medication error rate has increased by 15% over the past week, affecting patient safety scores.
+                        </p>
+                        <p class="text-xs text-red-600">
+                            <strong>Recommendation:</strong> Review pharmacy protocols and implement additional verification steps.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-yellow-800">⚠️ Performance Warning</h4>
+                            <span class="text-xs px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Medium Priority</span>
+                        </div>
+                        <p class="text-sm text-yellow-700 mb-2">
+                            Emergency department wait times are 40% above target during peak hours.
+                        </p>
+                        <p class="text-xs text-yellow-600">
+                            <strong>Recommendation:</strong> Consider additional triage resources during 2-6 PM peak periods.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-sm font-semibold text-green-800">✅ Optimization Opportunity</h4>
+                            <span class="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">Low Priority</span>
+                        </div>
+                        <p class="text-sm text-green-700 mb-2">
+                            Radiology department has 20% capacity during off-peak hours that could be utilized.
+                        </p>
+                        <p class="text-xs text-green-600">
+                            <strong>Recommendation:</strong> Schedule non-urgent procedures during 10 PM - 6 AM window.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Architecture -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">🏗️ Technical Architecture</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">🧠 Ontology Layer</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                            <span class="text-sm">Hospital, Department, KPI Classes</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm">Performance Domain & Strategic Goals</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                            <span class="text-sm">Causal Relationships & Dependencies</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                            <span class="text-sm">SWRL Reasoning Rules</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">⚙️ Technology Stack</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <span class="text-sm">Flask + SocketIO (Real-time Web)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <span class="text-sm">RDFLib (Semantic Reasoning)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                            <span class="text-sm">D3.js + ECharts (Visualization)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                            <span class="text-sm">Tailwind CSS (Responsive UI)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-3">🏥 Supported Departments</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-red-500">🚨</span>
+                        <span>Emergency Department</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-blue-500">🩻</span>
+                        <span>Radiology Department</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-green-500">🔬</span>
+                        <span>Surgery Department</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-purple-500">💊</span>
+                        <span>Pharmacy Department</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center">💡 Key Benefits</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-lg font-semibold mb-2">Semantic Context</h3>
+                    <p class="text-sm opacity-90">KPIs are understood in their operational context, not just as numbers</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🔗</div>
+                    <h3 class="text-lg font-semibold mb-2">Causal Relationships</h3>
+                    <p class="text-sm opacity-90">Automatic discovery and visualization of KPI dependencies</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-lg font-semibold mb-2">Automated Reasoning</h3>
+                    <p class="text-sm opacity-90">Intelligent inference of performance status and risks</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-lg font-semibold mb-2">Strategic Alignment</h3>
+                    <p class="text-sm opacity-90">Connect daily operations to organizational goals</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">🚀 Ready to Transform Your Hospital Intelligence?</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                Experience the power of ontology-driven analytics that goes beyond traditional dashboards to provide 
+                meaningful, actionable insights for healthcare management.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="/dashboard" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Launch Dashboard
+                </a>
+                <a href="/insights" class="bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                    View Insights
+                </a>
+                <a href="/simulation" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors">
+                    Try Simulation
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600">
+                <p class="mb-2">🏥 Hospital KPI Intelligence System</p>
+                <p class="text-sm">Transforming healthcare through semantic analytics</p>
+                <p class="text-xs mt-4">© 2025 - Built with Flask, RDFLib, D3.js, and Tailwind CSS</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Simulate real-time updates
+        setInterval(() => {
+            const kpiCards = document.querySelectorAll('.bg-gradient-to-r');
+            kpiCards.forEach(card => {
+                const valueElement = card.querySelector('.text-2xl');
+                if (valueElement && Math.random() > 0.95) {
+                    const currentValue = parseFloat(valueElement.textContent);
+                    const change = (Math.random() - 0.5) * 2;
+                    const newValue = Math.max(0, currentValue + change);
+                    valueElement.textContent = newValue.toFixed(1) + (valueElement.textContent.includes('%') ? '%' : '');
+                    
+                    // Add pulse animation
+                    card.classList.add('pulse');
+                    setTimeout(() => card.classList.remove('pulse'), 1000);
+                }
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

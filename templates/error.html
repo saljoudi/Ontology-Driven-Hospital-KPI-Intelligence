@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - Error</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .error-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .error-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .error-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .error-404 { background: #fee2e2; color: #dc2626; }
+        .error-500 { background: #fef3c7; color: #f59e0b; }
+        .error-generic { background: #e0e7ff; color: #6366f1; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-card">
+            <div class="error-icon error-{{ error_code }}">
+                {% if error_code == 404 %}
+                    🔍
+                {% elif error_code == 500 %}
+                    ⚠️
+                {% else %}
+                    ❌
+                {% endif %}
+            </div>
+            
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                {{ error_message }}
+            </h1>
+            
+            <p class="text-gray-600 mb-6">
+                {{ error_description }}
+            </p>
+            
+            <div class="space-y-4">
+                <a href="/" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Return to Dashboard
+                </a>
+                
+                {% if error_code == 404 %}
+                    <p class="text-sm text-gray-500">
+                        You might want to check the URL or try one of these pages:
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <a href="/" class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200">Dashboard</a>
+                        <a href="/insights" class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200">Insights</a>
+                        <a href="/simulation" class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200">Simulation</a>
+                    </div>
+                {% elif error_code == 500 %}
+                    <p class="text-sm text-gray-500">
+                        The development team has been notified. Please try again in a few moments.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
